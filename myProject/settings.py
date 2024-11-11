@@ -23,6 +23,7 @@ ALLOWED_HOSTS = [
     '127.0.0.1',  # If you also want to allow local development
     'localhost',
     'https://www.michaelhmoore.life',
+    'www.michaelhmoore.life',
 ]
 
 
