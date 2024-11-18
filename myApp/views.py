@@ -44,7 +44,6 @@ def subscribe(request):
     
     return JsonResponse({"error": "Invalid request"}, status=400)
 
-
 from django.http import JsonResponse
 from django.core.mail import send_mail
 from django.conf import settings
@@ -52,10 +51,14 @@ from django.conf import settings
 def contact(request):
     if request.method == "POST":
         # Capture form data
-        name = request.POST.get('name')
-        email = request.POST.get('email')
-        message = request.POST.get('message')
+        name = request.POST.get('name', '').strip()
+        email = request.POST.get('email', '').strip()
+        message = request.POST.get('message', '').strip()
         
+        # Validate inputs
+        if not name or not email or not message:
+            return JsonResponse({"error": "All fields are required."}, status=400)
+
         # Construct the email message to the admin
         subject = f"New Contact Form Submission from {name}"
         full_message = f"Name: {name}\nEmail: {email}\n\nMessage:\n{message}"
@@ -69,17 +72,9 @@ def contact(request):
                 ['feed.teach.love@gmail.com'],  # Replace with admin/support email
                 fail_silently=False,
             )
-            # Return a JSON response for AJAX success
-            response_data = {"message": "Thank you for getting in touch!"}
-            print("Success response:", response_data)  # Debug print to verify structure
-            return JsonResponse(response_data)
-
+            return JsonResponse({"message": "Thank you for getting in touch!"})
         except Exception as e:
-            # In case of an error during email sending, return an error response
-            print("Error sending email:", e)  # Log the error for debugging
             return JsonResponse({"error": "Failed to send message. Please try again later."}, status=500)
 
-    # If request method is not POST, return an error
-    error_response = {"error": "Invalid request method"}
-    print("Error response:", error_response)  # Debug print for non-POST requests
-    return JsonResponse(error_response, status=400)
+    return JsonResponse({"error": "Invalid request method"}, status=400)
+
