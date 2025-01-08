@@ -146,9 +146,9 @@ BUTTONS STYLE
 .btn {
   font-weight: 600;
   position: relative;
-  padding: 14px 40px;
+  padding: 30px 50px;
   border-radius: 5px;
-  font-size: 16px;
+  font-size: 20px;
   font-family: var(--theme-primary-font);
   border: 1px solid transparent;
   -webkit-transform: translateY(0px);
@@ -2170,4 +2170,63 @@ Footer Section
     border-color: var(--theme-primary-color);
   }
 
+  /*discount banner*/ 
 
+  .discount-banner {
+    background: #bd0000;
+    padding: 10px 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+}
+
+.discount-banner__content {
+    text-align: center;
+}
+
+.discount-banner__title {
+    font-size: 50px;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 8px;
+    text-align: center;
+}
+
+.discount-banner__subtitle {
+    font-size: 40px;
+    font-weight: 600;
+    color: #ffffff;
+    margin: 10px 0;
+    text-align: center;
+}
+
+.highlight {
+    color: #ffffff; /* Modern coral highlight */
+    font-weight: bold;
+    background: rgba(255, 0, 0, 0.776);
+    padding: 2px 4px;
+    border-radius: 4px;
+}
+
+.discount-banner__text {
+    font-size: 15px;
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+.discount-banner__btn {
+    display: inline-block;
+    background-color: #333;
+    color: #fff;
+    font-size: 16px;
+    padding: 10px 25px;
+    border-radius: 6px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.discount-banner__btn:hover {
+    background-color: #ff6347;
+    color: #fff;
+}
