@@ -2288,3 +2288,90 @@ Footer Section
 .btn-main:hover {
   background-color: #145c50;
 }
+
+/* Banner Section */
+.btn-main {
+  background-color: #19776b;
+  color: #fff;
+  font-size: 16px;
+  font-weight: bold;
+  padding: 12px 20px;
+  border-radius: 6px;
+  text-transform: uppercase;
+  transition: background-color 0.3s ease;
+  border: none;
+}
+.btn-main:hover {
+  background-color: #145c50;
+}
+
+/* Modal Styles */
+.modal-content {
+  border-radius: 12px;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+  padding: 20px;
+  background-color: #f9f9f9;
+}
+
+.modal-header {
+  border-bottom: none;
+}
+
+.modal-title {
+  font-size: 22px;
+  font-weight: bold;
+  color: #333;
+}
+
+.form-instructions {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 20px;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-label {
+  font-size: 14px;
+  font-weight: bold;
+  color: #444;
+}
+
+.form-control {
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  padding: 10px;
+  font-size: 14px;
+  color: #333;
+  transition: all 0.3s ease;
+}
+
+.form-control:focus {
+  border-color: #19776b;
+  box-shadow: 0 0 5px rgba(25, 119, 107, 0.2);
+  outline: none;
+}
+
+textarea.form-control {
+  resize: none;
+}
+
+.btn-paypal {
+  background-color: #ff9900;
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  padding: 10px 20px;
+  border-radius: 6px;
+  text-transform: uppercase;
+  transition: background-color 0.3s ease;
+  border: none;
+}
+
+.btn-paypal:hover {
+  background-color: #cc7a00;
+  color: white;
+}
+

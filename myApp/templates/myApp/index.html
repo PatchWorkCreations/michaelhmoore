@@ -26,20 +26,16 @@
         <div class="row align-items-center justify-content-between">
             <div class="col-md-12 col-lg-6">
                 <div class="banner-content">
-                     
                     <h1>Navigate Life’s Challenges with The Sailor’s Compass</h1>
                     <ul>
                         <li><i class="fa fa-check"></i>Gain insights from a Navy veteran's journey</li>
                         <li><i class="fa fa-check"></i>Available in eBook (iBooks, PDF, & ePub)</li>
                         <li><i class="fa fa-check"></i>Includes an inspiring audiobook version</li>
                     </ul>
-                    <a href="https://www.amazon.com/dp/B0DLKH6MQT" class="btn btn-main">
+                    <button class="btn btn-main" data-bs-toggle="modal" data-bs-target="#buyModal">
                         From <span class="old-price" style="text-decoration: line-through; color: #a9a9a9;">$47.90</span> NOW 
-                        <span class="new-price" style="color: #ff1f22; font-size: 2.5rem; font-weight: bold;">$28.74</span> ONLY!
-                    </a>
-                    
-                    
-                    
+                        <span class="new-price" style="color: #ffec1f; font-size: 2.5rem; font-weight: bold;">$28.74</span> ONLY!
+                    </button>
                     <p>Interested in a free chapter? <a href="#">Get it now</a></p>
                 </div>
             </div>
@@ -52,20 +48,40 @@
     </div>
 </section>
 
-<!-- Clients Logo section -->
-<section class="pt-100 center-about bg-grey">
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-lg-8">
-                <div class="section-heading text-center">
-                    <span>Trusted by Readers Worldwide</span>
-                    <h2>Join thousands who’ve found inspiration and direction through Michael H. Moore’s journey.</h2>
-                    <a href="#">Have questions? <strong class="text-color">Contact us for more details</strong></a>
-                </div>
+<!-- Modal Structure -->
+<div class="modal fade" id="buyModal" tabindex="-1" aria-labelledby="buyModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="buyModalLabel">Complete Your Purchase</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
+            <form id="purchaseForm">
+                <div class="modal-body">
+                    <p class="form-instructions">Please fill in the details below to receive your copy of <strong>The Sailor's Compass</strong>.</p>
+                    <!-- Full Name -->
+                    <div class="form-group">
+                        <label for="name" class="form-label">Full Name</label>
+                        <input type="text" class="form-control" id="name" name="name" placeholder="John Doe" required>
+                    </div>
+                    <!-- Email -->
+                    <div class="form-group">
+                        <label for="email" class="form-label">Email Address</label>
+                        <input type="email" class="form-control" id="email" name="email" placeholder="youremail@example.com" required>
+                    </div>
+                    <!-- Address -->
+                    <div class="form-group">
+                        <label for="address" class="form-label">Delivery Address</label>
+                        <textarea class="form-control" id="address" name="address" rows="3" placeholder="Enter your address" required></textarea>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn-paypal">Proceed to PayPal</button>
+                </div>
+            </form>
         </div>
     </div>
-</section>
+</div>
 
 <!-- About Section -->
 <section class="about-section section-padding bg-grey" id="about">
