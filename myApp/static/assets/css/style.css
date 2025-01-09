@@ -2230,3 +2230,61 @@ Footer Section
     background-color: #ff6347;
     color: #fff;
 }
+
+/* Button Styling */
+.btn-main {
+  background-color: #19776b;
+  color: white;
+  font-size: 1.2rem;
+  padding: 12px 25px;
+  border-radius: 8px;
+  text-transform: uppercase;
+  text-decoration: none;
+  display: inline-block;
+  transition: background-color 0.3s ease;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Hover Effect */
+.btn-main:hover {
+  background-color: #145c50;
+}
+
+/* Price Container for alignment */
+.price-container {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 8px;
+}
+
+/* Old Price Styling */
+.old-price {
+  text-decoration: line-through; /* Add the slash */
+  color: #a9a9a9; /* Muted gray color */
+  font-size: 1rem; /* Slightly smaller */
+}
+
+/* New Price Styling */
+.new-price {
+  color: #ff4d4f; /* Highlighted red */
+  font-size: 1.5rem; /* Larger font size */
+  font-weight: bold; /* Emphasized */
+}
+
+/* For the button */
+.btn-main {
+  background-color: #19776b;
+  color: white;
+  font-size: 1.2rem;
+  padding: 12px 25px;
+  border-radius: 8px;
+  text-transform: uppercase;
+  text-decoration: none;
+  display: inline-block;
+  transition: background-color 0.3s ease;
+  font-family: 'Poppins', sans-serif;
+}
+
+.btn-main:hover {
+  background-color: #145c50;
+}
