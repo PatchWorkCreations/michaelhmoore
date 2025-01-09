@@ -2170,70 +2170,78 @@ Footer Section
     border-color: var(--theme-primary-color);
   }
 
-  /*discount banner*/ 
-
-  .discount-banner {
-    background: #bd0000;
-    padding: 10px 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+  /* General Styles */
+.discount-banner {
+  background-color: #ff2626; /* Soft light brown for background */
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.discount-banner__content {
-    text-align: center;
+/* Inner Container */
+.discount-banner__inner {
+  max-width: 600px;
+  margin: 0 auto;
 }
 
+/* Title Styles */
 .discount-banner__title {
-    font-size: 50px;
-    font-weight: 700;
-    color: #ffffff;
-    margin-bottom: 8px;
-    text-align: center;
+  font-size: 24px;
+  font-weight: 700;
+  color: #ffffff; /* Darker brown for text */
+  margin-bottom: 10px;
 }
 
+/* Subtitle Styles */
 .discount-banner__subtitle {
-    font-size: 40px;
-    font-weight: 600;
-    color: #ffffff;
-    margin: 10px 0;
-    text-align: center;
+  font-size: 18px;
+  font-weight: 500;
+  color: #ffffff;
+  margin-bottom: 0;
 }
 
 .highlight {
-    color: #ffffff; /* Modern coral highlight */
-    font-weight: bold;
-    background: rgba(255, 0, 0, 0.776);
-    padding: 2px 4px;
-    border-radius: 4px;
+  color: #6f0101; /* Highlighted red for the discount */
+  font-weight: bold;
+  font-size: 30px;
 }
 
-.discount-banner__text {
-    font-size: 15px;
-    color: #555;
-    line-height: 1.6;
-    margin-bottom: 15px;
+/* Responsive Design */
+@media (max-width: 768px) {
+  .discount-banner {
+      padding: 15px;
+  }
+  .discount-banner__title {
+      font-size: 20px;
+  }
+  .discount-banner__subtitle {
+      font-size: 16px;
+  }
+  .highlight {
+      font-size: 18px;
+  }
 }
 
-.discount-banner__btn {
-    display: inline-block;
-    background-color: #333;
-    color: #fff;
-    font-size: 16px;
-    padding: 10px 25px;
-    border-radius: 6px;
-    text-decoration: none;
-    transition: all 0.3s ease;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+@media (max-width: 480px) {
+  .discount-banner {
+      padding: 10px;
+  }
+  .discount-banner__title {
+      font-size: 18px;
+  }
+  .discount-banner__subtitle {
+      font-size: 14px;
+  }
+  .highlight {
+      font-size: 16px;
+  }
 }
 
-.discount-banner__btn:hover {
-    background-color: #ff6347;
-    color: #fff;
-}
 
 /* Button Styling */
 .btn-main {
-  background-color: #19776b;
+  background-color: #000000;
   color: white;
   font-size: 1.2rem;
   padding: 12px 25px;
@@ -2273,7 +2281,7 @@ Footer Section
 
 /* For the button */
 .btn-main {
-  background-color: #19776b;
+  background-color: #000807;
   color: white;
   font-size: 1.2rem;
   padding: 12px 25px;
@@ -2291,7 +2299,7 @@ Footer Section
 
 /* Banner Section */
 .btn-main {
-  background-color: #19776b;
+  background-color: #080808;
   color: #fff;
   font-size: 16px;
   font-weight: bold;
