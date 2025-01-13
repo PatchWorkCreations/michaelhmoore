@@ -1,11 +1,12 @@
 {% extends "myApp/base.html" %}
 {% load static %}
-<script src="{% static 'js/app.js' %}"></script>
+
 
 {% block title %}Home - Treaser Book Landing{% endblock %}
 
 {% block content %}
 <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+
 <script src="https://www.paypal.com/sdk/js?client-id=AcO0pQSFgkyRPtmmgviw2lz2DCojtl28Y_Qr9bligTeR1kOZScy9jecX2eWixffPBqGDJJyxSWn5iT__&components=buttons"></script>
 
 
@@ -88,7 +89,6 @@
                 <div class="modal-footer">
                     <!-- PayPal Button Container -->
                     <div id="paypal-button-container"></div>
-
                 </div>
             </form>
         </div>
@@ -148,7 +148,10 @@
                         <div class="form-group mb-3">
                             <input type="text" class="form-control" placeholder="Email Address">
                         </div>
-                        <a href="https://www.amazon.com/dp/B0DLKH6MQT">class="btn btn-main w-100">Subscribe<i class="fa fa-angle-right ms-2"></i></a>  
+                        <a href="https://www.amazon.com/dp/B0DLKH6MQT" class="btn btn-main w-100">
+                            Subscribe<i class="fa fa-angle-right ms-2"></i>
+                        </a>
+
                         <p>* eBook includes iBooks, PDF & ePub formats</p>
                     </form>
                 </div>
@@ -478,7 +481,7 @@
     </div>
 </section>
 
-
+<script src="{% static 'js/app.js' %}"></script>
 <script>
     document.querySelector(".subscribe-form").addEventListener("submit", function(event) {
         event.preventDefault(); // Prevent form from submitting normally
@@ -546,6 +549,48 @@
         contactMessage.style.display = "block";
         contactMessage.classList.remove("alert-success");
         contactMessage.classList.add("alert-danger");
+    });
+});
+
+
+document.addEventListener("DOMContentLoaded", function () {
+    $('#buyModal').on('shown.bs.modal', function () {
+        paypal.Buttons({
+            createOrder: function (data, actions) {
+                // Add your createOrder logic here
+                return fetch('/api/orders', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        cart: [
+                            {
+                                id: 'sailors-compass',
+                                name: "The Sailor's Compass",
+                                quantity: parseInt(document.getElementById('quantity').value),
+                                price: 28.74,
+                            },
+                        ],
+                    }),
+                })
+                    .then(response => response.json())
+                    .then(orderData => orderData.id); // Return the order ID
+            },
+            onApprove: function (data, actions) {
+                return fetch(`/api/orders/${data.orderID}/capture`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                })
+                    .then(response => response.json())
+                    .then(orderData => {
+                        alert(`Thank you for purchasing! Transaction ID: ${orderData.id}`);
+                        $('#buyModal').modal('hide');
+                    });
+            },
+        }).render('#paypal-button-container');
     });
 });
 
