@@ -553,46 +553,6 @@
 });
 
 
-document.addEventListener("DOMContentLoaded", function () {
-    $('#buyModal').on('shown.bs.modal', function () {
-        paypal.Buttons({
-            createOrder: function (data, actions) {
-                // Add your createOrder logic here
-                return fetch('/api/orders', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify({
-                        cart: [
-                            {
-                                id: 'sailors-compass',
-                                name: "The Sailor's Compass",
-                                quantity: parseInt(document.getElementById('quantity').value),
-                                price: 28.74,
-                            },
-                        ],
-                    }),
-                })
-                    .then(response => response.json())
-                    .then(orderData => orderData.id); // Return the order ID
-            },
-            onApprove: function (data, actions) {
-                return fetch(`/api/orders/${data.orderID}/capture`, {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                })
-                    .then(response => response.json())
-                    .then(orderData => {
-                        alert(`Thank you for purchasing! Transaction ID: ${orderData.id}`);
-                        $('#buyModal').modal('hide');
-                    });
-            },
-        }).render('#paypal-button-container');
-    });
-});
 
 
 </script>

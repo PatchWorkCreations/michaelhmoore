@@ -17,14 +17,17 @@ async function createOrderCallback() {
             }),
         });
 
+        console.log("Create Order Response Status:", response.status);
+
         if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);
         }
 
         const orderData = await response.json();
+        console.log("Order Data:", orderData);
 
         if (orderData.id) {
-            return orderData.id; // Return the PayPal order ID
+            return orderData.id;
         } else {
             const errorDetail = orderData?.details?.[0];
             const errorMessage = errorDetail
@@ -34,10 +37,11 @@ async function createOrderCallback() {
             throw new Error(errorMessage);
         }
     } catch (error) {
-        console.error(error);
+        console.error("Error in createOrderCallback:", error);
         alert(`Could not initiate PayPal Checkout: ${error.message}`);
     }
 }
+
 
 async function onApproveCallback(data) {
     try {
@@ -68,16 +72,7 @@ async function onApproveCallback(data) {
     }
 }
 
-document.addEventListener("DOMContentLoaded", function () {
-    // Render PayPal buttons
-    paypal.Buttons({
-        createOrder: createOrderCallback, // Reuse the createOrderCallback
-        onApprove: onApproveCallback,
-        onCancel: function () {
-            alert("You canceled the PayPal payment.");
-        },
-    }).render("#paypal-button-container");
-});
+
 
 document.addEventListener("DOMContentLoaded", function () {
     // Render PayPal buttons

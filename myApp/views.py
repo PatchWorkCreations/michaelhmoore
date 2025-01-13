@@ -93,24 +93,22 @@ def create_order(request):
     if request.method == 'POST':
         try:
             body = json.loads(request.body)
-            customer = body.get('customer', {})
             cart = body.get('cart', [])
             product = cart[0]
             product_price = product.get('price', 0)
             quantity = product.get('quantity', 1)
             total_amount = product_price * quantity
 
-            # Use customer data for further processing if needed
-            customer_name = customer.get('name')
-            customer_email = customer.get('email')
-            customer_address = customer.get('address')
+            print(f"Received order: {body}")
 
             # Create the PayPal order
             order = create_paypal_order(total_amount, product['name'], quantity)
             return JsonResponse(order, status=200)
         except Exception as e:
+            print(f"Error in create_order: {e}")
             return JsonResponse({'error': str(e)}, status=500)
     return JsonResponse({'error': 'Invalid method'}, status=405)
+
 
 
 @csrf_exempt
