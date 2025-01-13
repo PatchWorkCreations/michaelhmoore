@@ -1,5 +1,6 @@
 {% extends "myApp/base.html" %}
 {% load static %}
+<script src="{% static 'js/app.js' %}"></script>
 
 {% block title %}Home - Treaser Book Landing{% endblock %}
 
@@ -49,7 +50,7 @@
     </div>
 </section>
 
-<!-- Modal Structure -->
+ 
 <!-- Modal Structure -->
 <div class="modal fade" id="buyModal" tabindex="-1" aria-labelledby="buyModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
@@ -87,6 +88,7 @@
                 <div class="modal-footer">
                     <!-- PayPal Button Container -->
                     <div id="paypal-button-container"></div>
+
                 </div>
             </form>
         </div>
