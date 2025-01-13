@@ -5,6 +5,8 @@
 
 {% block content %}
 <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+<script src="https://www.paypal.com/sdk/js?client-id=AcO0pQSFgkyRPtmmgviw2lz2DCojtl28Y_Qr9bligTeR1kOZScy9jecX2eWixffPBqGDJJyxSWn5iT__&components=buttons"></script>
+
 
 <section class="discount-banner">
     <div class="container">
@@ -48,6 +50,7 @@
 </section>
 
 <!-- Modal Structure -->
+<!-- Modal Structure -->
 <div class="modal fade" id="buyModal" tabindex="-1" aria-labelledby="buyModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
@@ -57,7 +60,9 @@
             </div>
             <form id="purchaseForm">
                 <div class="modal-body">
-                    <p class="form-instructions">Please fill in the details below to receive your copy of <strong>The Sailor's Compass</strong>.</p>
+                    <p class="form-instructions">
+                        Please fill in the details below to receive your copy of <strong>The Sailor's Compass</strong>.
+                    </p>
                     <!-- Full Name -->
                     <div class="form-group">
                         <label for="name" class="form-label">Full Name</label>
@@ -73,14 +78,21 @@
                         <label for="address" class="form-label">Delivery Address</label>
                         <textarea class="form-control" id="address" name="address" rows="3" placeholder="Enter your address" required></textarea>
                     </div>
+                    <!-- Quantity -->
+                    <div class="form-group">
+                        <label for="quantity" class="form-label">Quantity</label>
+                        <input type="number" class="form-control" id="quantity" name="quantity" value="1" min="1" required>
+                    </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="submit" class="btn-paypal">Proceed to PayPal</button>
+                    <!-- PayPal Button Container -->
+                    <div id="paypal-button-container"></div>
                 </div>
             </form>
         </div>
     </div>
 </div>
+
 
 <!-- About Section -->
 <section class="about-section section-padding bg-grey" id="about">

@@ -78,3 +78,47 @@ def contact(request):
 
     return JsonResponse({"error": "Invalid request method"}, status=400)
 
+
+
+# views.py
+from django.http import JsonResponse
+from django.views.decorators.csrf import csrf_exempt
+import json
+from .utils.paypal import create_paypal_order, capture_paypal_order
+
+
+
+@csrf_exempt
+def create_order(request):
+    if request.method == 'POST':
+        try:
+            body = json.loads(request.body)
+            customer = body.get('customer', {})
+            cart = body.get('cart', [])
+            product = cart[0]
+            product_price = product.get('price', 0)
+            quantity = product.get('quantity', 1)
+            total_amount = product_price * quantity
+
+            # Use customer data for further processing if needed
+            customer_name = customer.get('name')
+            customer_email = customer.get('email')
+            customer_address = customer.get('address')
+
+            # Create the PayPal order
+            order = create_paypal_order(total_amount, product['name'], quantity)
+            return JsonResponse(order, status=200)
+        except Exception as e:
+            return JsonResponse({'error': str(e)}, status=500)
+    return JsonResponse({'error': 'Invalid method'}, status=405)
+
+
+@csrf_exempt
+def capture_order(request, order_id):
+    if request.method == 'POST':
+        try:
+            order = capture_paypal_order(order_id)
+            return JsonResponse(order, status=200)
+        except Exception as e:
+            return JsonResponse({'error': str(e)}, status=500)
+    return JsonResponse({'error': 'Invalid method'}, status=405)

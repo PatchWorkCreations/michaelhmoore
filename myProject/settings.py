@@ -138,9 +138,7 @@ env = environ.Env()
 
 # Read the .env file
 environ.Env.read_env(os.path.join(BASE_DIR, '.env'))
-
-# Read .env file
-environ.Env.read_env(os.path.join(BASE_DIR, '.env'))
+ 
 
 # Email backend settings
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
@@ -152,3 +150,8 @@ EMAIL_USE_TLS = os.getenv('EMAIL_USE_TLS', 'True').lower() in ('true', '1', 'yes
 EMAIL_HOST_USER = os.getenv('EMAIL_HOST_USER', '')  # No fallback for sensitive data
 EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASSWORD', '')  # No fallback for sensitive data
 DEFAULT_FROM_EMAIL = os.getenv('DEFAULT_FROM_EMAIL', 'feed.teach.love@gmail.com')  # Provide a fallback
+
+
+PAYPAL_CLIENT_ID = os.getenv('PAYPAL_CLIENT_ID', '')
+PAYPAL_CLIENT_SECRET = os.getenv('PAYPAL_CLIENT_SECRET', '')
+PAYPAL_ENV = os.getenv('PAYPAL_ENV', 'live') 
