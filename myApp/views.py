@@ -78,7 +78,7 @@ def contact(request):
 
     return JsonResponse({"error": "Invalid request method"}, status=400)
 
-def hideoko(request):
+def hideko(request):
     context = {}
-    return render(request, 'myApp/hideoko.html', context)
+    return render(request, 'myApp/hideko.html', context)
 

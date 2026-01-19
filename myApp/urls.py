@@ -5,5 +5,5 @@ urlpatterns = [
     path("", views.index, name='index'),
     path('subscribe/', views.subscribe, name='subscribe'),
     path('contact/', views.contact, name='contact'),
-    path('hideoko/', views.hideoko, name='hideoko'),
+    path('hideko/', views.hideko, name='hideko'),
 ]
