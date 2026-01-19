@@ -1,0 +1,832 @@
+{% extends "myApp/base.html" %}
+{% load static %}
+
+{% block title %}A Beautiful Story - Discover Hideoko's Journey{% endblock %}
+
+{% block content %}
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+
+<style>
+    /* ============================================
+       BILLION DOLLAR LUXURY DESIGN - HIDEOKO SECTION
+       ============================================ */
+    
+    .hideoko-section-luxury {
+        position: relative;
+        background: 
+            linear-gradient(135deg, #fafbfc 0%, #ffffff 25%, #f8f9fa 50%, #ffffff 75%, #fafbfc 100%),
+            radial-gradient(circle at 15% 20%, rgba(255, 236, 31, 0.08) 0%, transparent 60%),
+            radial-gradient(circle at 85% 80%, rgba(78, 205, 196, 0.08) 0%, transparent 60%);
+        overflow: hidden;
+        padding: 140px 0;
+        min-height: 100vh;
+    }
+    
+    /* Luxury Background Overlay */
+    .luxury-bg-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: 
+            linear-gradient(180deg, rgba(255, 255, 255, 0.95) 0%, rgba(250, 251, 252, 0.98) 100%);
+        pointer-events: none;
+        z-index: 0;
+    }
+    
+    /* Animated Pattern Background */
+    .luxury-pattern {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        opacity: 0.03;
+        background-image: 
+            repeating-linear-gradient(45deg, transparent, transparent 35px, rgba(0, 0, 0, 0.1) 35px, rgba(0, 0, 0, 0.1) 70px);
+        pointer-events: none;
+        z-index: 0;
+    }
+    
+    /* Floating Gradient Orbs */
+    .luxury-gradient-orb {
+        position: absolute;
+        border-radius: 50%;
+        filter: blur(80px);
+        opacity: 0.4;
+        animation: floatOrb 20s ease-in-out infinite;
+        pointer-events: none;
+        z-index: 0;
+    }
+    
+    .luxury-orb-1 {
+        width: 600px;
+        height: 600px;
+        background: radial-gradient(circle, rgba(255, 236, 31, 0.3), transparent 70%);
+        top: -200px;
+        left: -200px;
+        animation-delay: 0s;
+    }
+    
+    .luxury-orb-2 {
+        width: 500px;
+        height: 500px;
+        background: radial-gradient(circle, rgba(78, 205, 196, 0.3), transparent 70%);
+        bottom: -150px;
+        right: -150px;
+        animation-delay: 10s;
+    }
+    
+    @keyframes floatOrb {
+        0%, 100% { transform: translate(0, 0) scale(1); }
+        50% { transform: translate(50px, -50px) scale(1.1); }
+    }
+    
+    /* ========== LUXURY HEADER ========== */
+    .luxury-header-wrapper {
+        position: relative;
+        z-index: 2;
+        margin-bottom: 100px;
+    }
+    
+    .luxury-subtitle-wrapper {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 20px;
+        margin-bottom: 40px;
+    }
+    
+    .luxury-subtitle-line {
+        width: 80px;
+        height: 1px;
+        background: linear-gradient(90deg, transparent, rgba(0, 0, 0, 0.15), transparent);
+        position: relative;
+    }
+    
+    .luxury-subtitle-line::after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 6px;
+        height: 6px;
+        background: linear-gradient(135deg, #ffec1f, #ffd93d);
+        border-radius: 50%;
+        box-shadow: 0 0 10px rgba(255, 236, 31, 0.5);
+    }
+    
+    .luxury-subtitle {
+        font-size: 0.875rem;
+        font-weight: 600;
+        letter-spacing: 4px;
+        text-transform: uppercase;
+        color: #888;
+        position: relative;
+    }
+    
+    .luxury-main-title {
+        font-size: clamp(2.5rem, 5vw, 4.5rem);
+        font-weight: 300;
+        color: #0a0a0a;
+        margin-bottom: 35px;
+        line-height: 1.1;
+        letter-spacing: -2px;
+    }
+    
+    .luxury-title-word {
+        display: inline-block;
+        background: linear-gradient(135deg, #0a0a0a 0%, #2a2a2a 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        margin: 0 8px;
+        position: relative;
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    
+    .luxury-title-word:hover {
+        transform: translateY(-3px);
+        background: linear-gradient(135deg, #ffec1f 0%, #ffd93d 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+    }
+    
+    .luxury-description {
+        font-size: 1.2rem;
+        font-weight: 300;
+        color: #555;
+        line-height: 1.9;
+        max-width: 750px;
+        margin: 0 auto;
+        letter-spacing: 0.3px;
+    }
+    
+    /* ========== ULTRA-PREMIUM FLIPBOOK ========== */
+    .luxury-flipbook-wrapper {
+        position: relative;
+        z-index: 2;
+        margin: 80px 0;
+        perspective: 2000px;
+    }
+    
+    .luxury-flipbook-container {
+        position: relative;
+        max-width: 1500px;
+        width: 100%;
+        margin: 0 auto;
+        padding: 60px;
+    }
+    
+    /* Decorative Corners */
+    .luxury-corner {
+        position: absolute;
+        width: 60px;
+        height: 60px;
+        z-index: 3;
+    }
+    
+    .luxury-corner-tl {
+        top: 0;
+        left: 0;
+        border-top: 2px solid rgba(255, 236, 31, 0.3);
+        border-left: 2px solid rgba(255, 236, 31, 0.3);
+        border-top-left-radius: 30px;
+    }
+    
+    .luxury-corner-tr {
+        top: 0;
+        right: 0;
+        border-top: 2px solid rgba(78, 205, 196, 0.3);
+        border-right: 2px solid rgba(78, 205, 196, 0.3);
+        border-top-right-radius: 30px;
+    }
+    
+    .luxury-corner-bl {
+        bottom: 0;
+        left: 0;
+        border-bottom: 2px solid rgba(78, 205, 196, 0.3);
+        border-left: 2px solid rgba(78, 205, 196, 0.3);
+        border-bottom-left-radius: 30px;
+    }
+    
+    .luxury-corner-br {
+        bottom: 0;
+        right: 0;
+        border-bottom: 2px solid rgba(255, 236, 31, 0.3);
+        border-right: 2px solid rgba(255, 236, 31, 0.3);
+        border-bottom-right-radius: 30px;
+    }
+    
+    /* Multi-layer Glow Effects */
+    .luxury-glow {
+        position: absolute;
+        border-radius: 40px;
+        filter: blur(40px);
+        opacity: 0;
+        transition: opacity 0.6s ease;
+        pointer-events: none;
+    }
+    
+    .luxury-glow-1 {
+        top: -30px;
+        left: -30px;
+        right: -30px;
+        bottom: -30px;
+        background: radial-gradient(circle, rgba(255, 236, 31, 0.2), transparent 70%);
+        z-index: -1;
+    }
+    
+    .luxury-glow-2 {
+        top: -50px;
+        left: -50px;
+        right: -50px;
+        bottom: -50px;
+        background: radial-gradient(circle, rgba(78, 205, 196, 0.15), transparent 70%);
+        z-index: -2;
+    }
+    
+    .luxury-glow-3 {
+        top: -70px;
+        left: -70px;
+        right: -70px;
+        bottom: -70px;
+        background: radial-gradient(circle, rgba(255, 255, 255, 0.1), transparent 70%);
+        z-index: -3;
+    }
+    
+    .luxury-flipbook-container:hover .luxury-glow {
+        opacity: 1;
+    }
+    
+    /* Main Flipbook Frame */
+    .luxury-flipbook-frame {
+        position: relative;
+        background: 
+            linear-gradient(135deg, #ffffff 0%, #fafbfc 100%);
+        border-radius: 30px;
+        padding: 8px;
+        box-shadow: 
+            0 0 0 1px rgba(0, 0, 0, 0.06),
+            0 30px 100px rgba(0, 0, 0, 0.1),
+            inset 0 1px 0 rgba(255, 255, 255, 0.8);
+        transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        transform-style: preserve-3d;
+    }
+    
+    .luxury-flipbook-container:hover .luxury-flipbook-frame {
+        transform: translateY(-12px) rotateX(2deg);
+        box-shadow: 
+            0 0 0 1px rgba(255, 236, 31, 0.2),
+            0 50px 150px rgba(0, 0, 0, 0.15),
+            inset 0 1px 0 rgba(255, 255, 255, 0.9),
+            0 0 80px rgba(255, 236, 31, 0.1);
+    }
+    
+    .luxury-frame-inner {
+        position: relative;
+        border-radius: 24px;
+        overflow: hidden;
+        background: #ffffff;
+        box-shadow: inset 0 2px 20px rgba(0, 0, 0, 0.03);
+    }
+    
+    .luxury-flipbook-iframe {
+        display: block;
+        width: 100%;
+        border: none;
+        border-radius: 24px;
+        background: #ffffff;
+        min-height: 750px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    }
+    
+    /* ========== LUXURY ABOUT SECTION ========== */
+    .luxury-about-section {
+        position: relative;
+        z-index: 2;
+    }
+    
+    .luxury-divider-wrapper {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 25px;
+    }
+    
+    .luxury-divider {
+        flex: 1;
+        height: 1px;
+        background: linear-gradient(90deg, transparent, rgba(0, 0, 0, 0.1), transparent);
+        max-width: 150px;
+    }
+    
+    .luxury-divider-text {
+        font-size: 1.5rem;
+        font-weight: 300;
+        color: #1a1a1a;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        font-size: 0.875rem;
+    }
+    
+    .luxury-bio-text {
+        font-size: 1.15rem;
+        font-weight: 300;
+        line-height: 2;
+        color: #444;
+        max-width: 850px;
+        margin: 0 auto;
+        letter-spacing: 0.2px;
+    }
+    
+    /* ========== ULTRA-PREMIUM FEATURE CARDS ========== */
+    .luxury-features-section {
+        position: relative;
+        z-index: 2;
+    }
+    
+    .luxury-feature-card {
+        position: relative;
+        padding: 50px 35px;
+        background: 
+            linear-gradient(135deg, #ffffff 0%, #fafbfc 100%);
+        border-radius: 24px;
+        border: 1px solid rgba(0, 0, 0, 0.06);
+        box-shadow: 
+            0 4px 30px rgba(0, 0, 0, 0.04),
+            inset 0 1px 0 rgba(255, 255, 255, 0.8);
+        transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        height: 100%;
+        overflow: hidden;
+        transform-style: preserve-3d;
+    }
+    
+    .luxury-feature-card::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(135deg, rgba(255, 236, 31, 0.03), rgba(78, 205, 196, 0.03));
+        opacity: 0;
+        transition: opacity 0.5s ease;
+        border-radius: 24px;
+    }
+    
+    .luxury-feature-card:hover::before {
+        opacity: 1;
+    }
+    
+    .luxury-feature-card:hover {
+        transform: translateY(-15px) rotateX(2deg);
+        box-shadow: 
+            0 20px 60px rgba(0, 0, 0, 0.12),
+            0 0 0 1px rgba(255, 236, 31, 0.2),
+            inset 0 1px 0 rgba(255, 255, 255, 0.9);
+        border-color: rgba(255, 236, 31, 0.3);
+    }
+    
+    .luxury-card-featured {
+        border: 2px solid rgba(255, 236, 31, 0.2);
+        background: 
+            linear-gradient(135deg, #ffffff 0%, #fffef5 100%);
+    }
+    
+    .luxury-card-featured:hover {
+        border-color: rgba(255, 236, 31, 0.4);
+        box-shadow: 
+            0 25px 70px rgba(255, 236, 31, 0.15),
+            0 0 0 1px rgba(255, 236, 31, 0.3),
+            inset 0 1px 0 rgba(255, 255, 255, 0.9);
+    }
+    
+    /* Card Glow Effect */
+    .luxury-card-glow {
+        position: absolute;
+        top: -50%;
+        left: -50%;
+        width: 200%;
+        height: 200%;
+        background: radial-gradient(circle, rgba(255, 236, 31, 0.1), transparent 70%);
+        opacity: 0;
+        transition: opacity 0.5s ease;
+        pointer-events: none;
+    }
+    
+    .luxury-feature-card:hover .luxury-card-glow {
+        opacity: 1;
+    }
+    
+    /* Icon Wrapper */
+    .luxury-feature-icon-wrapper {
+        position: relative;
+        width: 90px;
+        height: 90px;
+        margin: 0 auto 30px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 2;
+    }
+    
+    .luxury-icon-bg {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        background: linear-gradient(135deg, #ffec1f 0%, #ffd93d 100%);
+        box-shadow: 
+            0 10px 30px rgba(255, 236, 31, 0.3),
+            inset 0 2px 10px rgba(255, 255, 255, 0.3);
+        transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    
+    .luxury-feature-card:nth-child(2) .luxury-icon-bg {
+        background: linear-gradient(135deg, #4ecdc4 0%, #44a08d 100%);
+        box-shadow: 
+            0 10px 30px rgba(78, 205, 196, 0.3),
+            inset 0 2px 10px rgba(255, 255, 255, 0.3);
+    }
+    
+    .luxury-feature-card:nth-child(3) .luxury-icon-bg {
+        background: linear-gradient(135deg, #ff6b6b 0%, #ee5a6f 100%);
+        box-shadow: 
+            0 10px 30px rgba(255, 107, 107, 0.3),
+            inset 0 2px 10px rgba(255, 255, 255, 0.3);
+    }
+    
+    .luxury-feature-icon {
+        position: relative;
+        font-size: 2.2rem;
+        color: #0a0a0a;
+        z-index: 1;
+        transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    
+    .luxury-feature-card:hover .luxury-icon-bg {
+        transform: scale(1.15) rotate(10deg);
+        box-shadow: 
+            0 15px 40px rgba(255, 236, 31, 0.4),
+            inset 0 2px 10px rgba(255, 255, 255, 0.4);
+    }
+    
+    .luxury-feature-card:hover .luxury-feature-icon {
+        transform: scale(1.1);
+    }
+    
+    /* Feature Content */
+    .luxury-feature-content {
+        position: relative;
+        z-index: 2;
+        text-align: center;
+    }
+    
+    .luxury-feature-title {
+        font-size: 1.4rem;
+        font-weight: 500;
+        color: #0a0a0a;
+        margin-bottom: 15px;
+        letter-spacing: -0.3px;
+        line-height: 1.3;
+    }
+    
+    .luxury-feature-text {
+        font-size: 1rem;
+        font-weight: 300;
+        color: #666;
+        line-height: 1.7;
+        margin: 0;
+        letter-spacing: 0.2px;
+    }
+    
+    /* Shine Effect */
+    .luxury-card-shine {
+        position: absolute;
+        top: -50%;
+        left: -50%;
+        width: 200%;
+        height: 200%;
+        background: linear-gradient(45deg, transparent 30%, rgba(255, 255, 255, 0.3) 50%, transparent 70%);
+        opacity: 0;
+        transition: opacity 0.5s ease;
+        pointer-events: none;
+        animation: shine 3s infinite;
+    }
+    
+    @keyframes shine {
+        0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+        100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+    }
+    
+    .luxury-feature-card:hover .luxury-card-shine {
+        opacity: 1;
+        animation: shine 1.5s infinite;
+    }
+    
+    /* ========== RESPONSIVE DESIGN ========== */
+    @media (min-width: 1600px) {
+        .luxury-flipbook-container {
+            max-width: 1600px;
+            padding: 80px;
+        }
+        
+        .luxury-flipbook-iframe {
+            min-height: 800px;
+        }
+    }
+    
+    @media (max-width: 1200px) {
+        .luxury-flipbook-container {
+            padding: 40px;
+        }
+        
+        .luxury-feature-card {
+            padding: 40px 30px;
+        }
+    }
+    
+    @media (max-width: 992px) {
+        .hideoko-section-luxury {
+            padding: 100px 0;
+        }
+        
+        .luxury-header-wrapper {
+            margin-bottom: 70px;
+        }
+        
+        .luxury-flipbook-container {
+            padding: 30px;
+        }
+        
+        .luxury-flipbook-iframe {
+            min-height: 650px;
+        }
+        
+        .luxury-about-section {
+            margin-top: 80px;
+        }
+        
+        .luxury-bio-text {
+            font-size: 1.05rem;
+        }
+        
+        .luxury-feature-card {
+            padding: 35px 25px;
+        }
+        
+        .luxury-feature-icon-wrapper {
+            width: 80px;
+            height: 80px;
+        }
+        
+        .luxury-feature-icon {
+            font-size: 2rem;
+        }
+    }
+    
+    @media (max-width: 768px) {
+        .hideoko-section-luxury {
+            padding: 80px 0;
+        }
+        
+        .luxury-header-wrapper {
+            margin-bottom: 60px;
+        }
+        
+        .luxury-subtitle-wrapper {
+            gap: 15px;
+        }
+        
+        .luxury-subtitle-line {
+            width: 50px;
+        }
+        
+        .luxury-main-title {
+            font-size: 2.5rem;
+        }
+        
+        .luxury-description {
+            font-size: 1.05rem;
+        }
+        
+        .luxury-flipbook-wrapper {
+            margin: 60px 0;
+        }
+        
+        .luxury-flipbook-container {
+            padding: 20px;
+        }
+        
+        .luxury-corner {
+            width: 40px;
+            height: 40px;
+        }
+        
+        .luxury-flipbook-iframe {
+            min-height: 550px;
+        }
+        
+        .luxury-about-section {
+            margin-top: 60px;
+        }
+        
+        .luxury-divider-wrapper {
+            gap: 15px;
+        }
+        
+        .luxury-divider {
+            max-width: 80px;
+        }
+        
+        .luxury-bio-text {
+            font-size: 1rem;
+        }
+        
+        .luxury-features-section {
+            margin-top: 60px;
+        }
+        
+        .luxury-feature-card {
+            padding: 30px 20px;
+            margin-bottom: 20px;
+        }
+        
+        .luxury-feature-title {
+            font-size: 1.25rem;
+        }
+        
+        .luxury-feature-text {
+            font-size: 0.95rem;
+        }
+    }
+    
+    @media (max-width: 576px) {
+        .hideoko-section-luxury {
+            padding: 60px 0;
+        }
+        
+        .luxury-main-title {
+            font-size: 2rem;
+        }
+        
+        .luxury-description {
+            font-size: 1rem;
+        }
+        
+        .luxury-flipbook-container {
+            padding: 15px;
+        }
+        
+        .luxury-flipbook-iframe {
+            min-height: 450px;
+        }
+        
+        .luxury-feature-icon-wrapper {
+            width: 70px;
+            height: 70px;
+        }
+        
+        .luxury-feature-icon {
+            font-size: 1.8rem;
+        }
+    }
+</style>
+
+<!-- Hideoko's Book Section - Billion Dollar Design -->
+<section class="hideoko-section-luxury section-padding" id="hideoko">
+    <!-- Decorative Background Elements -->
+    <div class="luxury-bg-overlay"></div>
+    <div class="luxury-pattern"></div>
+    <div class="luxury-gradient-orb luxury-orb-1"></div>
+    <div class="luxury-gradient-orb luxury-orb-2"></div>
+    
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-12">
+                <!-- Premium Header -->
+                <div class="luxury-header-wrapper text-center mb-100">
+                    <div class="luxury-subtitle-wrapper">
+                        <span class="luxury-subtitle-line"></span>
+                        <span class="luxury-subtitle">A Beautiful Story</span>
+                        <span class="luxury-subtitle-line"></span>
+                    </div>
+                    <h2 class="luxury-main-title">
+                        <span class="luxury-title-word">Discover</span>
+                        <span class="luxury-title-word">Hideoko's</span>
+                        <span class="luxury-title-word">Journey</span>
+                    </h2>
+                    <p class="luxury-description">
+                        Journey through the pages of Hideoko's beautifully crafted narrative—a heartfelt story that complements Michael's tale with its own unique voice, wisdom, and grace. Experience her inspiring perspective through this interactive digital book.
+                    </p>
+                </div>
+
+                <!-- Ultra-Premium Flipbook Container -->
+                <div class="luxury-flipbook-wrapper">
+                    <div class="luxury-flipbook-container">
+                        <!-- Decorative Corner Elements -->
+                        <div class="luxury-corner luxury-corner-tl"></div>
+                        <div class="luxury-corner luxury-corner-tr"></div>
+                        <div class="luxury-corner luxury-corner-bl"></div>
+                        <div class="luxury-corner luxury-corner-br"></div>
+                        
+                        <!-- Glow Effects -->
+                        <div class="luxury-glow luxury-glow-1"></div>
+                        <div class="luxury-glow luxury-glow-2"></div>
+                        <div class="luxury-glow luxury-glow-3"></div>
+                        
+                        <!-- Main Flipbook Frame -->
+                        <div class="luxury-flipbook-frame">
+                            <div class="luxury-frame-inner">
+                                <iframe 
+                                    allowfullscreen="true" 
+                                    src="https://designrr.page/?id=479005&token=1083432228&type=FP&h=3808&view=spread&mode=double" 
+                                    height="750" 
+                                    width="100%" 
+                                    frameborder="0"
+                                    class="luxury-flipbook-iframe">
+                                </iframe>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Premium About Section -->
+                <div class="luxury-about-section mt-120">
+                    <div class="row justify-content-center">
+                        <div class="col-lg-9 col-xl-8">
+                            <div class="luxury-about-content">
+                                <div class="luxury-divider-wrapper mb-60">
+                                    <div class="luxury-divider"></div>
+                                    <span class="luxury-divider-text">About Hideoko</span>
+                                    <div class="luxury-divider"></div>
+                                </div>
+                                
+                                <p class="luxury-bio-text">
+                                    Hideoko brings a distinctive voice and profound wisdom to the literary world, beautifully complementing Michael's story with her own unique perspective. Through strength, grace, and resilience, she shares a narrative that resonates deeply with readers seeking inspiration, authenticity, and the power of partnership in life's journey.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Ultra-Premium Feature Cards -->
+                <div class="luxury-features-section mt-100">
+                    <div class="row justify-content-center g-4">
+                        <div class="col-lg-4 col-md-6">
+                            <div class="luxury-feature-card">
+                                <div class="luxury-card-glow"></div>
+                                <div class="luxury-feature-icon-wrapper">
+                                    <div class="luxury-icon-bg"></div>
+                                    <i class="bi bi-heart-fill luxury-feature-icon"></i>
+                                </div>
+                                <div class="luxury-feature-content">
+                                    <h4 class="luxury-feature-title">A Story of Love & Partnership</h4>
+                                    <p class="luxury-feature-text">Discover resilience, devotion, and the power of shared journeys</p>
+                                </div>
+                                <div class="luxury-card-shine"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-lg-4 col-md-6">
+                            <div class="luxury-feature-card luxury-card-featured">
+                                <div class="luxury-card-glow"></div>
+                                <div class="luxury-feature-icon-wrapper">
+                                    <div class="luxury-icon-bg"></div>
+                                    <i class="bi bi-book-half luxury-feature-icon"></i>
+                                </div>
+                                <div class="luxury-feature-content">
+                                    <h4 class="luxury-feature-title">Immersive Reading Experience</h4>
+                                    <p class="luxury-feature-text">Explore her story through an elegant, interactive flipbook</p>
+                                </div>
+                                <div class="luxury-card-shine"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-lg-4 col-md-6">
+                            <div class="luxury-feature-card">
+                                <div class="luxury-card-glow"></div>
+                                <div class="luxury-feature-icon-wrapper">
+                                    <div class="luxury-icon-bg"></div>
+                                    <i class="bi bi-star-fill luxury-feature-icon"></i>
+                                </div>
+                                <div class="luxury-feature-content">
+                                    <h4 class="luxury-feature-title">A Perfect Companion</h4>
+                                    <p class="luxury-feature-text">Beautifully complements The Sailor's Compass with its own unique voice</p>
+                                </div>
+                                <div class="luxury-card-shine"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}
+

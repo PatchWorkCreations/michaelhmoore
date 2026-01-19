@@ -695,6 +695,207 @@
             font-size: 1.8rem;
         }
     }
+    
+    /* ============================================
+       ELEGANT ABOUT SECTION - CLEAN & SOPHISTICATED
+       ============================================ */
+    
+    .elegant-about-section {
+        background: #ffffff;
+        padding: 100px 0;
+    }
+    
+    /* Elegant Header */
+    .elegant-header {
+        margin-bottom: 70px;
+    }
+    
+    .elegant-label {
+        font-size: 0.75rem;
+        font-weight: 600;
+        letter-spacing: 4px;
+        text-transform: uppercase;
+        color: #999;
+        margin-bottom: 25px;
+        display: inline-block;
+    }
+    
+    .elegant-title {
+        font-size: clamp(2.5rem, 5.5vw, 4.2rem);
+        font-weight: 300;
+        color: #1a1a1a;
+        line-height: 1.15;
+        letter-spacing: -1.5px;
+        margin-bottom: 25px;
+    }
+    
+    .elegant-title-accent {
+        color: #d4a017;
+        font-weight: 500;
+        text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+    }
+    
+    .elegant-description {
+        font-size: 1.15rem;
+        font-weight: 300;
+        color: #666;
+        line-height: 1.8;
+        max-width: 700px;
+        margin: 0 auto;
+    }
+    
+    /* Elegant Cards */
+    .elegant-features {
+        margin-bottom: 60px;
+    }
+    
+    .elegant-card {
+        background: #ffffff;
+        border: 2px solid #ffec1f;
+        border-radius: 16px;
+        padding: 45px 35px;
+        text-align: center;
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        height: 100%;
+        position: relative;
+    }
+    
+    .elegant-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 12px 40px rgba(0, 0, 0, 0.08);
+    }
+    
+    .elegant-card-featured {
+        border-color: #4ecdc4;
+        background: #f8fffe;
+    }
+    
+    .elegant-card-pink {
+        border-color: #ff6b6b;
+        background: #fff8f8;
+    }
+    
+    .elegant-icon-wrapper {
+        width: 70px;
+        height: 70px;
+        margin: 0 auto 25px;
+        background: #ffec1f;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.8rem;
+        color: #1a1a1a;
+        transition: all 0.4s ease;
+        box-shadow: 0 4px 15px rgba(255, 236, 31, 0.25);
+    }
+    
+    .elegant-icon-teal {
+        background: #4ecdc4;
+        box-shadow: 0 4px 15px rgba(78, 205, 196, 0.25);
+    }
+    
+    .elegant-icon-pink {
+        background: #ff6b6b;
+        box-shadow: 0 4px 15px rgba(255, 107, 107, 0.25);
+    }
+    
+    .elegant-card:hover .elegant-icon-wrapper {
+        transform: scale(1.1);
+    }
+    
+    .elegant-card-title {
+        font-size: 1.35rem;
+        font-weight: 500;
+        color: #1a1a1a;
+        margin-bottom: 15px;
+        line-height: 1.4;
+    }
+    
+    .elegant-card-text {
+        font-size: 1rem;
+        font-weight: 300;
+        color: #666;
+        line-height: 1.7;
+        margin: 0;
+    }
+    
+    /* Elegant Button */
+    .elegant-button {
+        display: inline-flex;
+        align-items: center;
+        gap: 12px;
+        padding: 16px 40px;
+        background: #ffec1f;
+        color: #1a1a1a;
+        font-size: 1rem;
+        font-weight: 600;
+        text-decoration: none;
+        border-radius: 50px;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 20px rgba(255, 236, 31, 0.3);
+    }
+    
+    .elegant-button:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 25px rgba(255, 236, 31, 0.4);
+        color: #1a1a1a;
+    }
+    
+    .elegant-button i:last-child {
+        transition: transform 0.3s ease;
+    }
+    
+    .elegant-button:hover i:last-child {
+        transform: translateX(4px);
+    }
+    
+    /* Responsive */
+    @media (max-width: 992px) {
+        .elegant-about-section {
+            padding: 80px 0;
+        }
+        
+        .elegant-title {
+            font-size: 2.8rem;
+        }
+        
+        .elegant-description {
+            font-size: 1.05rem;
+        }
+        
+        .elegant-card {
+            padding: 35px 25px;
+            margin-bottom: 25px;
+        }
+    }
+    
+    @media (max-width: 768px) {
+        .elegant-title {
+            font-size: 2.3rem;
+        }
+        
+        .elegant-card-title {
+            font-size: 1.2rem;
+        }
+        
+        .elegant-icon-wrapper {
+            width: 60px;
+            height: 60px;
+            font-size: 1.5rem;
+        }
+    }
+    
+    @media (max-width: 576px) {
+        .elegant-title {
+            font-size: 2rem;
+        }
+        
+        .elegant-button {
+            padding: 14px 30px;
+            font-size: 0.95rem;
+        }
+    }
 </style>
 
 <section class="discount-banner">
@@ -773,45 +974,140 @@
     </div>
 </div>
 
-<!-- About Section -->
-<section class="about-section section-padding bg-grey" id="about">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-6 col-md-6">
-                <div class="about-img">
-                    <img src="{% static 'assets/images/banner/book.png' %}" alt="The Sailor's Compass Book Cover" class="img-fluid">
+<section id="about" style="
+    background:#f7f6f3;
+    padding:140px 0;
+    font-family:'Georgia','Times New Roman',serif;
+    color:#1c1c1c;
+    text-align:center;
+">
+    <div style="
+        max-width:760px;
+        margin:0 auto;
+        padding:0 24px;
+    ">
+
+        <!-- Eyebrow -->
+        <div style="
+            font-size:12px;
+            letter-spacing:0.3em;
+            text-transform:uppercase;
+            color:#8a8a8a;
+            margin-bottom:24px;
+        ">
+            A MEMOIR
+        </div>
+
+        <!-- Headline -->
+        <h1 style="
+            font-size:56px;
+            line-height:1.15;
+            font-weight:400;
+            margin:0 0 32px;
+        ">
+            A Compass for Life,<br>
+            Drawn from the Sea
+        </h1>
+
+        <!-- Lead -->
+        <p style="
+            font-size:21px;
+            line-height:1.65;
+            color:#2e2e2e;
+            margin-bottom:28px;
+        ">
+            <em>The Sailor’s Compass</em> is Michael H. Moore’s intimate reflection on faith,
+            family, and the quiet strength required to stay the course when life drifts off-map.
+        </p>
+
+        <!-- Supporting Copy -->
+        <p style="
+            font-size:17px;
+            line-height:1.75;
+            color:#555;
+            margin-bottom:48px;
+        ">
+            Through a life shaped by service, sacrifice, and devotion, this memoir explores
+            the moments that define us—and reminds us that true direction is often discovered
+            when we slow down and listen.
+        </p>
+
+        <!-- CTA -->
+        <a href="https://www.amazon.com/dp/B0DLKH6MQT"
+           target="_blank"
+           rel="noopener noreferrer"
+           style="
+               display:inline-block;
+               font-size:14px;
+               letter-spacing:0.14em;
+               text-transform:uppercase;
+               color:#1c1c1c;
+               text-decoration:none;
+               padding-bottom:6px;
+               border-bottom:1px solid #1c1c1c;
+               margin-bottom:80px;
+           ">
+            View on Amazon →
+        </a>
+
+        <!-- Divider -->
+        <div style="
+            margin:0 auto 60px;
+            width:120px;
+            height:1px;
+            background:rgba(0,0,0,0.12);
+        "></div>
+
+        <!-- Proof Points -->
+        <div style="
+            display:flex;
+            flex-wrap:wrap;
+            justify-content:center;
+            gap:48px;
+        ">
+            <div>
+                <div style="
+                    font-size:14px;
+                    font-weight:600;
+                    margin-bottom:6px;
+                ">
+                    Rooted in Service
+                </div>
+                <div style="font-size:14px; color:#666;">
+                    U.S. Navy veteran
                 </div>
             </div>
-            <div class="col-lg-6 col-md-6">
-                <div class="section-heading">
-                     
-                    <h3 class="heading-title">Navigate Life’s Journey with Michael H. Moore</h3>
-                    <p>
-                        The Sailor's Compass is a heartfelt memoir that blends personal stories and life lessons, guiding readers through themes of resilience, family, and purpose. 
-                    </p>
-                </div>
 
-                <div class="about-text-block">
-                    <i class="bi bi-book"></i>
-                    <h4>A Story of Faith and Resilience</h4>
-                    <p>Michael H. Moore invites readers to explore the life lessons he's learned as a U.S. Navy veteran and devoted family man.</p>
+            <div>
+                <div style="
+                    font-size:14px;
+                    font-weight:600;
+                    margin-bottom:6px;
+                ">
+                    Timeless Themes
                 </div>
-                <div class="about-text-block">
-                    <i class="bi bi-tablet"></i>
-                    <h4>Available on Any Device</h4>
-                    <p>Enjoy <em>The Sailor's Compass</em> on your preferred device, including eBook and audiobook formats.</p>
+                <div style="font-size:14px; color:#666;">
+                    Faith · Family · Resilience
                 </div>
-                <div class="about-text-block">
-                    <i class="bi bi-people-fill"></i>
-                    <h4>For Readers Seeking Purpose</h4>
-                    <p>Whether you're a veteran, a spouse, or someone navigating life’s challenges, this book offers relatable insights and encouragement.</p>
+            </div>
+
+            <div>
+                <div style="
+                    font-size:14px;
+                    font-weight:600;
+                    margin-bottom:6px;
+                ">
+                    Available Everywhere
                 </div>
-                
-                <a href="https://www.amazon.com/dp/B0DLKH6MQT" class="btn btn-main-2"><i class="fa fa-check me-2"></i>Learn More About This Book</a>
+                <div style="font-size:14px; color:#666;">
+                    eBook & Audiobook
+                </div>
             </div>
         </div>
+
     </div>
 </section>
+
 
 <!--
 <section class="cta pb-100">

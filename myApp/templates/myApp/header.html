@@ -41,22 +41,22 @@
                     <div class="collapse navbar-collapse" id="navbarMenu">
                         <ul class="navbar-nav ms-auto">
                             <li class="nav-item">
-                                <a href="#" class="nav-link js-scroll-trigger">Home</a>
+                                <a href="{% url 'index' %}" class="nav-link">Home</a>
                             </li>
                             <li class="nav-item">
-                                <a href="#about" class="nav-link js-scroll-trigger">About</a>
+                                <a href="{% url 'index' %}#about" class="nav-link">About</a>
                             </li>
                             <li class="nav-item">
-                                <a href="#chapters" class="nav-link js-scroll-trigger">Chapters</a>
+                                <a href="{% url 'index' %}#testimonial" class="nav-link">Reviews</a>
                             </li>
                             <li class="nav-item">
-                                <a href="#testimonial" class="nav-link js-scroll-trigger">Reviews</a>
+                                <a href="{% url 'index' %}#author" class="nav-link">Author</a>
                             </li>
                             <li class="nav-item">
-                                <a href="#author" class="nav-link js-scroll-trigger">Author</a>
+                                <a href="{% url 'index' %}#contact" class="nav-link">Contact</a>
                             </li>
                             <li class="nav-item">
-                                <a href="#contact" class="nav-link js-scroll-trigger">Contact</a>
+                                <a href="{% url 'hideoko' %}" class="nav-link">A Beautiful Story</a>
                             </li>
                         </ul>
                     </div> <!-- / .navbar-collapse -->
